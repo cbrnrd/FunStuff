@@ -1,0 +1,1 @@
+cat ~/snap_urls.txt | while read url; do ./gobuster -u https://"$url" -q -e -k -w ~/bug_bounty_lists/content_discovery_nullenc0de.txt > sub_url.txt; done; cat sub_url.txt | cut -d ' ' -f 1 > ~/parameth/params.txt; cd ~/parameth; cat params.txt | while read url; do python parameth.py -u "$url"; done;
