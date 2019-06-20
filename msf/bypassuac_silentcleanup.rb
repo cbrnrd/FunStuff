@@ -19,7 +19,9 @@ class MetasploitModule < Msf::Exploit::Local
     super(update_info(info,
       'Name'                 => "Windows Escalate UAC Protection Bypass (Via SilentCleanup)",
       'Description'          => %q{
-        TODO
+        There's a task in Task Scheduler called "SilentCleanup" which, while it's executed as Users, automatically runs with elevated privileges. 
+        When it runs, it executes the file %windir%\system32\cleanmgr.exe. Since it runs as Users, and we can control user's environment variables, 
+        %windir% (normally pointing to C:\Windows) can be changed to point to whatever we want, and it'll run as admin.
       },
       'License'              => MSF_LICENSE,
       'Author'               => [
